@@ -4,11 +4,10 @@ const morgan = require("morgan");
 const cors = require("cors");
 const compression = require("compression");
 const helmet = require("helmet");
+const path = require("path");
 
 const connectDB = require("./config/db.config");
 const cookieParser = require('cookie-parser');
-
-
 
 
 /**
@@ -28,18 +27,23 @@ const app = express();
 app.use(compression()); //Compress all routes
 
 // Use Helmet to protect against well known vulnerabilities
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false, 
+}));
 
-// use Morgan dep in dev mode
-app.use(morgan("dev"));
+// use Morgan dep 
+app.use(morgan(process.env.NODE_ENV === "production" ? "common" : "dev"));
 
-// Set up cors to allow us to accept requests from our client
-app.use(
-	cors({
-		origin: "http://localhost:3000", // <-- location of the react app were connecting to
-		credentials: true,
-	})
-);
+const allowedOrigins = [
+    'https://tourmaline-axolotl-1d1eae.netlify.app',
+    'http://localhost:3000' 
+];
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
 
 // Parsers
 app.use(express.json({ limit: "50mb" }));
@@ -58,6 +62,18 @@ require("./routes/user.route")(app);
  * -------------- SERVER ----------------
  */
 
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Something went wrong!' });
+});
+
 // Specify the PORT which will the server running on
 const PORT = process.env.PORT || 3001;
 
@@ -65,5 +81,5 @@ const PORT = process.env.PORT || 3001;
 app.disable("x-powered-by");
 
 app.listen(PORT, () => {
-	console.log(`Server is running in ${process.env.NODE_ENV} mode, under port ${PORT}.`);
+    console.log(`Server is running in ${process.env.NODE_ENV || "development"} mode on port ${PORT}.`);
 });
