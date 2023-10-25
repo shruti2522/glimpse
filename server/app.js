@@ -38,12 +38,12 @@ const allowedOrigins = [
     'https://tourmaline-axolotl-1d1eae.netlify.app',
     'http://localhost:3000' 
 ];
+
 app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
-
 
 // Parsers
 app.use(express.json({ limit: "50mb" }));
