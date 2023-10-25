@@ -5,7 +5,7 @@ import axios from "axios";
 import AuthenticationContext from "../contexts/auth/Auth.context.js";
 import { BOOKMARK_POST } from "../contexts/types.js";
 import Navbar from "../components/Navbar.js";
-import { axiosConfig, ALL_POST_URL } from "../config/constants.js";
+import { axiosConfig, ALL_POST_URL, PROD_URL } from "../config/constants.js";
 // Material-UI Components
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -135,7 +135,7 @@ const Home = () => {
 	}, []);
 
 	const likePost = (id) => {
-		axios.put(`http://localhost:8000/like`, { postId: id }, config)
+		axios.put(`${PROD_URL}/like`, { postId: id }, config)
 			.then((result) => {
 				const newData = data.map((item) => {
 					if (result.data._id === item._id) return result.data;
@@ -147,7 +147,7 @@ const Home = () => {
 	};
 
 	const unlikePost = (id) => {
-		axios.put(`http://localhost:8000/Unlike`, { postId: id }, config)
+		axios.put(`${PROD_URL}/Unlike`, { postId: id }, config)
 			.then((res) => {
 				const newData = data.map((item) => {
 					if (res.data._id === item._id) return res.data;
@@ -159,7 +159,7 @@ const Home = () => {
 	};
 
 	const bookmark = (id) => {
-		axios.put(`http://localhost:8000/bookmark-post`, { postId: id }, config)
+		axios.put(`${PROD_URL}/bookmark-post`, { postId: id }, config)
 			.then((result) => {
 				console.log("result", result.data.bookmarks)
 				dispatch({
@@ -172,7 +172,7 @@ const Home = () => {
 	};
 
 	const removeBookmark = (id) => {
-		axios.put(`http://localhost:8000/remove-bookmark`, { postId: id }, config)
+		axios.put(`${PROD_URL}/remove-bookmark`, { postId: id }, config)
 			.then((result) => {
 				dispatch({
 					type: BOOKMARK_POST,
@@ -185,7 +185,7 @@ const Home = () => {
 
 	const makeComment = (text, postId) => {
 		setComment("");
-		axios.put(`http://localhost:8000/comment`, { text, postId }, config)
+		axios.put(`${PROD_URL}/comment`, { text, postId }, config)
 			.then((result) => {
 				const newData = data.map((item) => {
 					if (result.data._id === item._id) return result.data;
@@ -198,7 +198,7 @@ const Home = () => {
 	};
 
 	const deletePost = (postId) => {
-		axios.delete(`http://localhost:8000/deletepost/${postId}`, config).then((res) => {
+		axios.delete(`${PROD_URL}/deletepost/${postId}`, config).then((res) => {
 			const newData = data.filter((item) => {
 				return item._id !== res.data;
 			});

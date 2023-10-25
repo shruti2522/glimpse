@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import AuthenticationContext from "../contexts/auth/Auth.context";
 import { UPDATE_FOLLOW_DATA } from "../contexts/types";
-import { axiosConfig } from "../config/constants";
+import { axiosConfig, PROD_URL } from "../config/constants";
 // Material-UI Components
 import { makeStyles } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
@@ -61,13 +61,13 @@ const UserProfilePage = () => {
 	const config = axiosConfig();
 
 	useEffect(() => {
-		axios.get(`http://localhost:8000/user/${userid}`, config).then((res) => {
+		axios.get(`${PROD_URL}/user/${userid}`, config).then((res) => {
 			setData(res.data);
 		});
 	}, []);
 
 	const followUser = () => {
-		axios.put(`http://localhost:8000/follow`, { followId: userid }, config).then((result) => {
+		axios.put(`${PROD_URL}/follow`, { followId: userid }, config).then((result) => {
 			dispatch({
 				type: UPDATE_FOLLOW_DATA,
 				payload: { followers: result.data.followers, following: result.data.following },
@@ -87,7 +87,7 @@ const UserProfilePage = () => {
 	};
 
 	const unfollowUser = () => {
-		axios.put(`http://localhost:8000/unfollow`, { unfollowId: userid }, config).then((result) => {
+		axios.put(`${PROD_URL}/unfollow`, { unfollowId: userid }, config).then((result) => {
 			dispatch({
 				type: UPDATE_FOLLOW_DATA,
 				payload: { followers: result.data.followers, following: result.data.following },

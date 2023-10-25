@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthenticationContext from "../contexts/auth/Auth.context";
 import { LOGOUT } from "../contexts/types";
 import Axios from "axios";
+import { PROD_URL } from "../config/constants.js";
 
 // Material-UI Components
 import List from "@material-ui/core/List";
@@ -152,7 +153,7 @@ const Navbar = () => {
 
 	const findUser = (pattern) => {
 		if (!(pattern === "")) {
-			const URL = `http://localhost:8000/users-research`;
+			const URL = `${PROD_URL}/users-research`;
 			const config = {
 				headers: {
 					Authorization: "Bearer " + Cookies.get('authToken'),

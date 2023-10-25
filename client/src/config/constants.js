@@ -16,30 +16,31 @@ export const axiosConfig = () => {
  * EndPoints of the API used in the code
  */
 
+export const PROD_URL = `https://tourmaline-axolotl-1d1eae.netlify.app/` || `http://localhost:8000` ;
 // CreatePost Screen
-export const CREATE_POST_URL = `http://localhost:8000/createpost`;
+export const CREATE_POST_URL = `${PROD_URL}/createpost`;
 
 // Home Screen
-export const ALL_POST_URL = `http://localhost:8000/allpost`;
+export const ALL_POST_URL = `${PROD_URL}/allpost`;
 
 // Login Screen
-export const LOGIN_URL = `http://localhost:8000/signin`;
+export const LOGIN_URL = `${PROD_URL}/signin`;
 
 // NewPassword Screen
-export const NEW_PWD_URL = `http://localhost:8000/new-pwd`;
+export const NEW_PWD_URL = `${PROD_URL}/new-pwd`;
 
 // Profile Screen
-export const MY_POST_URL = `http://localhost:8000/mypost`;
-export const MY_BOOKMARKS_URL = `http://localhost:8000/bookmarks`;
+export const MY_POST_URL = `${PROD_URL}/mypost`;
+export const MY_BOOKMARKS_URL = `${PROD_URL}/bookmarks`;
 
 // ResetPassword Screen
-export const RESET_PWD_URL = `http://localhost:8000/reset-pwd`;
+export const RESET_PWD_URL = `${PROD_URL}/reset-pwd`;
 
 // SignUp Screen
-export const SIGNUP_URL = `http://localhost:8000/signup`;
+export const SIGNUP_URL = `${PROD_URL}/signup`;
 
 // SubscribePosts Screen
-export const SUB_POST_URL = `http://localhost:8000/subspost`;
+export const SUB_POST_URL = `${PROD_URL}/subspost`;
 
 //DeletePost 
-export const DEL_POST_URL = `http://localhost:8000/deletepost`;
+export const DEL_POST_URL = `${PROD_URL}/deletepost`;

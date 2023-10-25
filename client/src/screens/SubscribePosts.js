@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthenticationContext from "../contexts/auth/Auth.context";
-import { axiosConfig, SUB_POST_URL } from "../config/constants";
+import { axiosConfig, SUB_POST_URL, PROD_URL } from "../config/constants";
 // Material-UI Components
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -128,7 +128,7 @@ const SubscribePost = () => {
 	}, []);
 
 	const likePost = (id) => {
-		axios.put(`http://localhost:8000/like`, { postId: id }, config)
+		axios.put(`${PROD_URL}/like`, { postId: id }, config)
 			.then((result) => {
 				const newData = data.map((item) => {
 					if (result.data._id === item._id) return result.data;
@@ -140,7 +140,7 @@ const SubscribePost = () => {
 	};
 
 	const unlikePost = (id) => {
-		axios.put(`http://localhost:8000/Unlike`, { postId: id }, config)
+		axios.put(`${PROD_URL}/Unlike`, { postId: id }, config)
 			.then((res) => {
 				const newData = data.map((item) => {
 					if (res.data._id === item._id) return res.data;
@@ -153,7 +153,7 @@ const SubscribePost = () => {
 
 	const makeComment = (text, postId) => {
 		setComment("");
-		axios.put(`http://localhost:8000/comment`, { text, postId }, config)
+		axios.put(`${PROD_URL}/comment`, { text, postId }, config)
 			.then((result) => {
 				const newData = data.map((item) => {
 					if (result.data._id === item._id) return result.data;
@@ -165,7 +165,7 @@ const SubscribePost = () => {
 	};
 
 	const deletePost = (postId) => {
-		axios.delete(`http://localhost:8000/deletepost/${postId}`, config).then((res) => {
+		axios.delete(`${PROD_URL}/deletepost/${postId}`, config).then((res) => {
 			const newData = data.filter((item) => {
 				return item._id !== res.data;
 			});
