@@ -16,7 +16,7 @@ export const axiosConfig = () => {
  * EndPoints of the API used in the code
  */
 
-export const PROD_URL = process.env.REACT_APP_API_URL || `http://localhost:8000` ;
+export const PROD_URL = process.env.BACKEND_URL || `http://localhost:8000` ;
 
 // CreatePost Screen
 export const CREATE_POST_URL = `${PROD_URL}/createpost`;
