@@ -1,1 +1,1 @@
-# langchain_docs
+# AI-powered pdf analyzer
