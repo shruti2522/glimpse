@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
      },
    }));
 
-const socket = io('http://localhost:8000');
+const socket = io('https://glimpse-zy3s.onrender.com');
 
 function Chat() {
   const { username } = useParams();
