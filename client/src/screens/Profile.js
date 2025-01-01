@@ -107,7 +107,7 @@ const ProfilePage = () => {
 
 	const config = axiosConfig();
 
-	console.log(state)
+	// console.log(state);
 
 	useEffect(() => {
 		axios.get(MY_POST_URL, config).then((res) => {

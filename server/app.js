@@ -30,7 +30,7 @@ const io = new Server(httpServer, {
     origin: [
       "https://tourmaline-axolotl-1d1eae.netlify.app",
       "http://localhost:3000",
-    ], // Add allowed origins
+    ], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   },
