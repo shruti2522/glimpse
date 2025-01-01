@@ -92,7 +92,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
 
-     
+  const contactAvatarUrl = 'https://i.pinimg.com/736x/46/c6/f1/46c6f1701bd1ad92172687b27bbd33ae.jpg';   
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
       const message = { text: newMessage, sender: username, id: Date.now() };
