@@ -16,7 +16,7 @@ export const axiosConfig = () => {
  * EndPoints of the API used in the code
  */
 
-export const PROD_URL = `https://glimpse-zy3s.onrender.com`;
+export const PROD_URL = `http://localhost:8000`;
 
 // CreatePost Screen
 export const CREATE_POST_URL = `${PROD_URL}/createpost`;

@@ -11,6 +11,9 @@ import Signup from "../screens/Signup.js";
 import CreatePost from "../screens/CreatePost.js";
 import Profile from "../screens/Profile.js";
 import UserProfile from "../screens/UserProfile.js";
+import Messages from "../screens/Messages";
+import Chat from "../screens/Chat";
+import Explore from "../screens/Explore"
 import SubscribePost from "../screens/SubscribePosts.js";
 import Reset from "../screens/ResetPassword.js";
 import NewPass from "../screens/NewPassword.js";
@@ -45,7 +48,7 @@ const Routing = () => {
 					<Route exact path='/' element={<Home />} />
 				</Route>
 				<Route exact path='/explore' element={<ProtectedRoute />}>
-					<Route exact path='/explore' element={<Home />} />
+					<Route exact path='/explore' element={<Explore />} />
 				</Route>
 				<Route exact path='/create' element={<ProtectedRoute />}>
 					<Route exact path='/create' element={<CreatePost />} />
@@ -56,7 +59,12 @@ const Routing = () => {
 				<Route exact path='/profile/:userid' element={<ProtectedRoute />}>
 					<Route exact path='/profile/:userid' element={<UserProfile />} />
 				</Route>
-
+				<Route exact path='/messages' element={<ProtectedRoute />}>
+					<Route exact path='/messages' element={<Messages />} />
+				</Route>
+				<Route exact path='/chat/:username' element={<ProtectedRoute />}>
+					<Route exact path='/chat/:username' element={<Chat />} />
+				</Route>
 
 			</Routes>
 		</Router>

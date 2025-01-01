@@ -1,0 +1,78 @@
+const data = {
+    data: [
+      {
+        userName: "viart_kohali",
+        title: "We Did It 🙌",
+        image: "https://i.pinimg.com/736x/d2/67/ad/d267adb39de0710f13aa43c9c35d612c.jpg",
+        posted: "18 minutes ago",
+        likes: "100000",
+        comments: "890",
+      },
+      {
+        userName: "john",
+        title: "Heathrow Airport",
+        image: "https://i.pinimg.com/1200x/f7/ca/f8/f7caf8de46823407027cf0a230eed78e.jpg",
+        posted: "10 minutes ago",
+        likes: "100",
+        comments: "10",
+      },
+      {
+        userName: "travel_diaries",
+        title: "A Beautiful Sunset 🌅",
+        image: "https://i.pinimg.com/1200x/da/70/db/da70dbb0539192e5683d395e84e14a27.jpg",
+        posted: "1 hour ago",
+        likes: "230",
+        comments: "45",
+      },
+      {
+        userName: "foodie_corner",
+        title: "Delicious Pasta 🍝",
+        image: "https://i.pinimg.com/736x/64/3b/b1/643bb1b2e2135081a6371fd199caef95.jpg",
+        posted: "2 hours ago",
+        likes: "500",
+        comments: "120",
+      },
+      {
+        userName: "nature_lover",
+        title: "Into the Woods 🌲",
+        image: "https://i.pinimg.com/1200x/30/ac/48/30ac480448fdb3036303f3bf9bd1759c.jpg",
+        posted: "3 hours ago",
+        likes: "750",
+        comments: "200",
+      },
+      {
+        userName: "fitness_freak",
+        title: "Morning Workout 💪",
+        image: "https://i.pinimg.com/1200x/55/3a/b1/553ab1b490f1378c61603852a5952edd.jpg",
+        posted: "4 hours ago",
+        likes: "320",
+        comments: "80",
+      },
+      {
+        userName: "city_explorer",
+        title: "Night Lights of New York 🗽",
+        image: "https://i.pinimg.com/1200x/a7/4e/13/a74e137a5a84affbbd3409ed6cd4dde5.jpg",
+        posted: "5 hours ago",
+        likes: "900",
+        comments: "300",
+      },
+      {
+        userName: "pet_world",
+        title: "Meet my furry friend 🐶",
+        image: "https://i.pinimg.com/736x/e1/23/2c/e1232cb2bfb1861b9e11cebd98c12065.jpg",
+        posted: "6 hours ago",
+        likes: "1100",
+        comments: "350",
+      },
+      {
+        userName: "bookworm",
+        title: "Latest Reads 📚",
+        image: "https://i.pinimg.com/736x/b4/c2/cf/b4c2cf0c98884b38e8c5a2625b1495be.jpg",
+        posted: "7 hours ago",
+        likes: "250",
+        comments: "60",
+      },
+    ],
+  };
+  export default data;
+  
